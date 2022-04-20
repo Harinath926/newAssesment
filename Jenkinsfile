@@ -1,21 +1,23 @@
 pipeline {
-    agent any 
+    agent any
+
     stages {
-        stage('test') { 
+        stage('Build') {
             steps {
-           echo "Hello world"  
+                echo 'Building..'
+                sh "javac HelloWorld.java"
             }
         }
-        stage('Build') { 
+        stage('execute') {
             steps {
-               echo "test"
-           sh " docker build -t my-app:1.0 ."
+                echo 'Testing..'
+                sh "java HelloWorld"
             }
         }
-        stage('Execute') { 
+        stage('Deploy') {
             steps {
-              echo "deploy" 
-           sh " docker run my-app:1.0"
+                echo 'Deploying....'
             }
         }
     }
+}
