@@ -4,12 +4,13 @@ pipeline {
         stage('Build') { 
             steps {
            echo "build"     
-                sh "python hello.py"
+             
             }
         }
-        stage('execute') { 
+        stage('test') { 
             steps {
                echo "test"
+                sh "python hello.py"
             }
         }
         stage('Deploy') { 
