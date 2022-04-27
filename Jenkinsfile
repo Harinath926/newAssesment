@@ -3,14 +3,15 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-           echo "build"     
+           echo "build"  
+                sh "javac Hello.java"
              
             }
         }
         stage('test') { 
             steps {
                echo "test"
-                sh "python hello.py"
+                sh "java hello"
             }
         }
       
