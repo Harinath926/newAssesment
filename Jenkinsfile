@@ -1,30 +1,18 @@
 pipeline {
     agent any
     
-    stages {
-        stage('Build') {
+stages {
+        stage('Build') { 
             steps {
-                script {
-                    // Hello, World! Java Program
-                    def javaCode = '''
-                    public class HelloWorld {
-                        public static void main(String[] args) {
-                            System.out.println("Hello, World!");
-                        }
-                    }
-                    '''
-                    writeFile file: 'HelloWorld.java', text: javaCode
-                    
-                    // Compile the Java code
-                    sh 'javac HelloWorld.java'
-                }
+           echo "build"  
+                sh "javac Hello.java"
+
             }
         }
-        stage('Test') {
+        stage('test') { 
             steps {
-                // Run unit tests (if you have any)
-                // Replace the test command with the actual test command for your project
-                sh 'echo "Running tests..."'
+               echo "test"
+                sh "java hello"
             }
         }
     }
